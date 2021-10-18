@@ -3,7 +3,7 @@ ARG SKOPEO_VERSION=v1.4.1
 ARG YQ_VERSION=v4.11.2
 ARG NERDCTL_VERSION=0.11.0
 ARG NGINX_VERSION=1.20-alpine
-ARG RERGISRRY_VERSION=2.7.1
+ARG RERGISTRY_VERSION=2.7.1
 ARG MKCERT_VERSION=v1.4.3-patch-1.0
 ARG KUBESPRAY_VERSION=latest
 ARG KUBESPRAY_IMAGE=ghcr.io/icodex/kubespray
@@ -22,8 +22,8 @@ WORKDIR /images
 RUN ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/') \
     && skopeo copy --insecure-policy --src-tls-verify=false --override-arch ${ARCH} --additional-tag nginx:${NGINX_VERSION} \
        docker://docker.io/library/nginx:${NGINX_VERSION} docker-archive:nginx-${NGINX_VERSION}.tar \
-    && skopeo copy --insecure-policy --src-tls-verify=false --override-arch ${ARCH} --additional-tag registry:${RERGISRRY_VERSION} \
-       docker://docker.io/library/registry:${RERGISRRY_VERSION} docker-archive:registry-${RERGISRRY_VERSION}.tar \
+    && skopeo copy --insecure-policy --src-tls-verify=false --override-arch ${ARCH} --additional-tag registry:${RERGISTRY_VERSION} \
+       docker://docker.io/library/registry:${RERGISTRY_VERSION} docker-archive:registry-${RERGISTRY_VERSION}.tar \
     && skopeo copy --insecure-policy --src-tls-verify=false --override-arch ${ARCH} --additional-tag kubespray:${KUBESPRAY_VERSION} \
        docker://${KUBESPRAY_IMAGE}:${KUBESPRAY_VERSION} docker-archive:kubespray-${KUBESPRAY_VERSION}.tar
 
