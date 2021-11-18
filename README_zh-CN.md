@@ -1,6 +1,6 @@
 ## 简介
 
-[kubeplay](https://github.com/k8sli/kubeplay) 是基于 [kubespray](https://github.com/k8sli/kubespray) 实现的离线部署 kuberneres 集群的工具
+[kubeplay](https://github.com/icodex/kubeplay) 是基于 [kubespray](https://github.com/icodex/kubespray) 实现的离线部署 kuberneres 集群的工具
 
 ### 特性
 
@@ -16,23 +16,23 @@
 
 | addon        | version        | 用途                        |
 | ------------ | -------------- | --------------------------- |
-| kubernetes   | v1.21.4        | kubernetes                  |
-| containerd   | v1.4.6         | 容器运行时                  |
-| etcd         | v3.4.13        | etcd 服务                   |
-| crictl       | v1.21.0        | CRI CLI 工具                |
+| kubernetes   | v1.21.5        | kubernetes                  |
+| containerd   | v1.4.9         | 容器运行时                  |
+| etcd         | v3.5.1         | etcd 服务                   |
+| crictl       | v1.22.0        | CRI CLI 工具                |
 | pause        | 3.3            | pause 容器镜像              |
-| cni-plugins  | v0.9.1         | CNI 插件                    |
-| calico       | v3.18.5        | calico                      |
-| autoscaler   | 1.8.3          | DNS 自动扩缩容              |
-| coredns      | v1.8.0         | 集群 DNS 服务               |
-| flannel      | v0.14.0        | flannel                     |
+| cni-plugins  | v1.0.1         | CNI 插件                    |
+| calico       | v3.20.0        | calico                      |
+| autoscaler   | 1.8.4          | DNS 自动扩缩容              |
+| coredns      | v1.8.6         | 集群 DNS 服务               |
+| flannel      | v0.15.1        | flannel                     |
 | nginx        | 1.19           | node 节点反向代理 APIserver |
 | canal        | calico/flannel | 集成 calico 和 flannel      |
 | helm         | v3.6.3         | helm CLI 工具               |
-| nerdctl      | 0.8.0          | containerd CLI 工具         |
-| nerdctl-full | 0.11.0         | containerd 工具全家桶       |
+| nerdctl      | 0.8.1          | containerd CLI 工具         |
+| nerdctl-full | 0.13.0         | containerd 工具全家桶       |
 | registry     | v2.7.1         | 提供镜像下载服务            |
-| skopeo       | v1.4.0         | 镜像搬运工具                |
+| skopeo       | v1.4.1         | 镜像搬运工具                |
 
 ### 支持的 Linux 发行版
 
@@ -55,7 +55,7 @@
 
 ### 下载
 
-在 GitHub 的 release 页面 [k8sli/kubeplay/releases](https://github.com/k8sli/kubeplay/releases)，根据部署机器的 Linux 发行版和 CPU 架构选择相应的安装包，将它下载到部署节点。
+在 GitHub 的 release 页面 [icodex/kubeplay/releases](https://github.com/icodex/kubeplay/releases)，根据部署机器的 Linux 发行版和 CPU 架构选择相应的安装包，将它下载到部署节点。
 
 ```bash
 kubeplay-v0.1.0-alpha.3-centos-7.sha256sum.txt # 安装包 sha256sum 校验文件
@@ -374,3 +374,5 @@ $ bash install.sh remove-cluster
 ```bash
 $ bash install.sh remove
 ```
+
+> /var/lib/calico/nodename

@@ -1,13 +1,13 @@
 # kubeplay
 
-[![Build kubeplay packages](https://github.com/k8sli/kubeplay/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/k8sli/kubeplay/actions/workflows/build.yaml)
-![GitHub All Releases](https://img.shields.io/github/downloads/k8sli/kubeplay/total)
+[![Build kubeplay packages](https://github.com/icodex/kubeplay/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/icodex/kubeplay/actions/workflows/build.yaml)
+![GitHub All Releases](https://img.shields.io/github/downloads/icodex/kubeplay/total)
 
 > English | [简体中文](./README_zh-CN.md)
 
 ## Introduction
 
-[kubeplay](https://github.com/k8sli/kubeplay) is a tool for offline deployment of kuberneres clusters based on [kubespray](https://github.com/k8sli/kubespray).
+[kubeplay](https://github.com/icodex/kubeplay) is a tool for offline deployment of kuberneres clusters based on [kubespray](https://github.com/icodex/kubespray).
 
 ### Feature
 
@@ -23,24 +23,24 @@
 
 | addon        | version        | usage                           |
 | ------------ | -------------- | ------------------------------- |
-| kubernetes   | v1.21.4        | kubernetes                      |
-| containerd   | v1.4.6         | container runtime               |
-| etcd         | v3.4.13        | etcd service                    |
-| crictl       | v1.21.0        | CRI CLI tool                    |
+| kubernetes   | v1.21.5        | kubernetes                      |
+| containerd   | v1.4.9         | container runtime               |
+| etcd         | v3.5.1         | etcd service                    |
+| crictl       | v1.22.0        | CRI CLI tool                    |
 | pause        | 3.3            | pause container image           |
-| cni-plugins  | v0.9.1         | CNI plugins                     |
-| calico       | v3.18.5        | calico                          |
-| autoscaler   | 1.8.3          | DNS auto scaling                |
-| coredns      | v1.8.0         | cluster DNS service             |
-| flannel      | v0.14.0        | flannel                         |
-| cilium       | v1.9.10        | cilium                          |
+| cni-plugins  | v1.0.1         | CNI plugins                     |
+| calico       | v3.20.0        | calico                          |
+| autoscaler   | 1.8.4          | DNS auto scaling                |
+| coredns      | v1.8.6         | cluster DNS service             |
+| flannel      | v0.15.1        | flannel                         |
+| cilium       | v1.9.11        | cilium                          |
 | nginx        | 1.19           | reverse proxy of APIserver      |
 | canal        | calico/flannel | calico and flannel intergration |
 | helm         | v3.6.3         | helm CLI tool                   |
-| nerdctl      | 0.8.0          | containerd CLI tool             |
-| nerdctl-full | 0.11.0         | containerd toolset              |
+| nerdctl      | 0.8.1          | containerd CLI tool             |
+| nerdctl-full | 0.13.0         | containerd toolset              |
 | registry     | v2.7.1         | container image registry        |
-| skopeo       | v1.4.0         | image porting tool              |
+| skopeo       | v1.4.1         | image porting tool              |
 
 ### Supported Linux Distributions
 
@@ -64,7 +64,7 @@ Using [kubespray](https://github.com/kubernetes-sigs/kubespray) which come from 
 
 ### Download
 
-You can download the package matching your platform from the releases page [k8sli/kubeplay/releases](https://github.com/k8sli/kubeplay/releases) on GitHub, then copy it to deploy node.
+You can download the package matching your platform from the releases page [icodex/kubeplay/releases](https://github.com/icodex/kubeplay/releases) on GitHub, then copy it to deploy node.
 
 ```bash
 kubeplay-v0.1.0-alpha.3-centos-7.sha256sum.txt # checksum file
@@ -384,3 +384,5 @@ $ bash install.sh remove-cluster
 ```bash
 $ bash install.sh remove
 ```
+
+> /var/lib/calico/nodename
