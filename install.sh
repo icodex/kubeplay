@@ -89,7 +89,7 @@ main(){
     compose)
       deploy_compose
       ;;
-    cluster)
+    deploy-cluster)
       common::rudder_config
       common::push_kubespray_image
       common::run_kubespray "bash /kubespray/run.sh deploy-cluster"
@@ -123,7 +123,7 @@ main(){
       common::usage
       ;;
     *)
-      echowarn "unknow [TYPE] parameter: ${INSTALL_TYPE}"
+      errorlog "unknow [TYPE] parameter: ${INSTALL_TYPE}"
       common::usage
       ;;
   esac

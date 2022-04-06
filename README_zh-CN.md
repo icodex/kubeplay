@@ -1,6 +1,6 @@
 ## 简介
 
-[kubeplay](https://github.com/k8sli/kubeplay) 是基于 [kubespray](https://github.com/k8sli/kubespray) 实现的离线部署 kuberneres 集群的工具
+[kubeplay](https://github.com/icodex/kubeplay) 是基于 [kubespray](https://github.com/icodex/kubespray) 实现的离线部署 kuberneres 集群的工具
 
 ### 特性
 
@@ -32,7 +32,7 @@
 | nerdctl      | 0.15.0          | containerd CLI 工具         |
 | nerdctl-full | 0.11.0         | containerd 工具全家桶       |
 | registry     | v2.7.1         | 提供镜像下载服务            |
-| skopeo       | v1.4.0         | 镜像搬运工具                |
+| skopeo       | v1.4.1         | 镜像搬运工具                |
 
 ### 支持的 Linux 发行版
 
@@ -55,7 +55,7 @@
 
 ### 下载
 
-在 GitHub 的 release 页面 [k8sli/kubeplay/releases](https://github.com/k8sli/kubeplay/releases)，根据部署机器的 Linux 发行版和 CPU 架构选择相应的安装包，将它下载到部署节点。
+在 GitHub 的 release 页面 [icodex/kubeplay/releases](https://github.com/icodex/kubeplay/releases)，根据部署机器的 Linux 发行版和 CPU 架构选择相应的安装包，将它下载到部署节点。
 
 ```bash
 kubeplay-v0.1.0-alpha.3-centos-7.sha256sum.txt # 安装包 sha256sum 校验文件
@@ -374,3 +374,22 @@ $ bash install.sh remove-cluster
 ```bash
 $ bash install.sh remove
 ```
+
+### 安装后需要安装第三方sc
+
+```
+kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml
+kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+
+```
+
+```
+kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/kubesphere-installer.yaml
+kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/cluster-configuration.yaml
+```
+检查安装日志：
+```
+kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='{.items[0].metadata.name}') -f
+```
+
+> /var/lib/calico/nodename
